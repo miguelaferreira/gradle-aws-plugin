@@ -16,7 +16,8 @@ buildscript {
 	}
 }
 
-group = "jp.classmethod.aws"
+group = "local.dev"
+//group = "jp.classmethod.aws"
 ext.artifactId = "gradle-aws-plugin"
 
 apply plugin: "java"
@@ -236,6 +237,7 @@ dependencies {
 // ======== deploy artifacts ========
 // Allows forks of the plugin to define their own deployment mechanisms
 // in separate files named according to their maven group name
+//apply from: "deploy/local.gradle"
 apply from: "deploy/${group}.gradle"
 
 // ======== wrapper ========

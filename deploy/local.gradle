@@ -1,0 +1,30 @@
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+    }
+  }
+}
+
+pluginBundle {
+  website = 'https://github.com/classmethod-aws/gradle-aws-plugin'
+  vcsUrl = 'https://github.com/classmethod-aws/gradle-aws-plugin'
+  description = 'Gradle plugin to manage Amazon Web Services'
+  tags = ['AWS']
+
+  plugins {
+    awsLambdaPlugin {
+      id = 'jp.classmethod.aws.lambda'
+      displayName = 'Gradle AWS Lambda plugin'
+    }
+  }
+
+  mavenCoordinates {
+    groupId = project.group
+    artifactId = project.artifactId
+    version = project.version
+  }
+}
